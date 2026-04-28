@@ -19,6 +19,7 @@ app.add_middleware(
 #LOADANDO CHAVES API .env
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_URL = os.getenv("GEMINI_URL")
 
 #Formato do conteudo para o gemini
 class Content(BaseModel):
@@ -45,4 +46,19 @@ async def chat_handler(user_input: Content):
             "parts": parts
             }]
     }
+
+    #dictionary for the gemini request cointaning api key variable.
+    headers={"x-goog-api-key": GEMINI_API_KEY}
+    response = requests.post(GEMINI_URL, headers=headers, json=gemini_request)
+    #Converting the response into a list:   
+    response_data = response.json()
+
+    #TODO delete the fololwing, simple debug print
+    print(response_data)
+
+    
+    reply = response_data["candidates"][0]["content"]["parts"][0]["text"]
+
+    #Return the reply to the front-end
+    return {"reply": reply}
         
