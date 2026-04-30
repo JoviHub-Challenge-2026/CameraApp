@@ -53,10 +53,7 @@ async def chat_handler(user_input: Content):
     #Converting the response into a list:   
     response_data = response.json()
 
-    #TODO delete the fololwing, simple debug print
-    print(response_data)
 
-    
     reply = response_data["candidates"][0]["content"]["parts"][0]["text"]
 
     #Return the reply to the front-end
