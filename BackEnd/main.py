@@ -21,6 +21,7 @@ app.add_middleware(
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_URL = os.getenv("GEMINI_URL")
+IMAGE_URL = os.getenv("IMAGE_URL")
 
 #System prompt:
 SYSTEM_PROMPT = """
@@ -110,7 +111,12 @@ class Content(BaseModel):
     mime_type: str = None
     image_base64: str = None
 
+class ImageGen(BaseModel):
+    prompt: str
+    image_base64: str = None
+
 #ROUTES
+#Chat route
 @app.post("/chat")
 async def chat_handler(user_input: Content):
     parts = [
@@ -132,16 +138,50 @@ async def chat_handler(user_input: Content):
             "parts": parts
             }]
     }
-
     #dictionary for the gemini request cointaning api key variable.
     headers={"x-goog-api-key": GEMINI_API_KEY}
     response = requests.post(GEMINI_URL, headers=headers, json=gemini_request)
+
     #Converting the response into a list:   
     response_data = response.json()
+    print(response_data)
 
-
-    reply = json.loads(response_data["candidates"][0]["content"]["parts"][0]["text"])
 
     #Return the reply to the front-end
+    reply = json.loads(response_data["candidates"][0]["content"]["parts"][0]["text"])
     return {"reply": reply}
+
+
+#Image generation route
+@app.post("/image_gen")
+async def image_generation(user_input: ImageGen):
+    parts = [
+        {"text": user_input.prompt} 
+    ] 
+    if user_input.image_base64:
+        parts.append({
+            "inlineData": {
+                "mimeType": "image/jpeg",
+                "data": user_input.image_base64,
+                }
+            })
         
+    gemini_request = {
+    "contents": [{
+        "parts": parts
+        }],
+         "generationConfig": {
+        "responseModalities": ["IMAGE", "TEXT"]
+    }
+    }
+        
+    headers={"x-goog-api-key": GEMINI_API_KEY}
+    response = requests.post(IMAGE_URL, headers=headers, json=gemini_request)
+
+    #Converting the response into a list:   
+    response_data = response.json()
+    print(response_data)
+
+
+    #Return the reply to the front-end
+    return {"raw": response_data}

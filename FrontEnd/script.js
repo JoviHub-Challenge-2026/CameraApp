@@ -11,6 +11,10 @@ img_input.addEventListener("change", () => {
 
 request.addEventListener("click", async() => {
     let file = img_input.files[0]
+    if (!file) {
+    alert("Please select an image first");
+    return;
+}
     //Converting img to base64
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -27,8 +31,11 @@ request.addEventListener("click", async() => {
 
             })
         })
+        console.log("Sending request to backend...");
         const data = await response.json();
         ai_display.innerText = data.reply;
+        //ai_display.innerText = JSON.stringify(data.reply, null, 2); //see the response for debug
+        console.log("Response:", data);
 
 
 };
