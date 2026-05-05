@@ -182,6 +182,6 @@ async def image_generation(user_input: ImageGen):
     response_data = response.json()
     print(response_data)
 
-
+    base64image = response_data["candidates"][0]["content"]["parts"][0]["inlineData"]["data"]
     #Return the reply to the front-end
-    return {"raw": response_data}
+    return {"image": base64image}

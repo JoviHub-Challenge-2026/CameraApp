@@ -38,5 +38,24 @@ request.addEventListener("click", async() => {
         console.log("Response:", data);
 
 
+
+
+        data.reply.intents.forEach(async intent => {
+            if (intent.intent_name === "image_gen"){
+                const response = await fetch("http://127.0.0.1:8000/image_gen", {
+                    method: "POST",
+                    headers:  { 'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        'prompt': intent.prompt,
+                        'image_base64': base64,
+                    })
+                })
+                const image_data = await response.json()
+                preview.src = "data:image/png;base64," + image_data.image;
+            }
+            
+        });
+
+
 };
 })
