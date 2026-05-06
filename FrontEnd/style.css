@@ -1,5 +1,6 @@
 :root {
-    --background: #0E0F14;
+    --bg: #0E0F14;
+    --bg2: #333232;
     --card: #1E1F26;
     --yellow: #FCC419;
     --text: #FFFFFF;
@@ -29,7 +30,7 @@ body {
     width: 390px;
     height: 844px;
     margin: 0 auto;
-    background-color: var(--background);
+    background-color: var(--bg);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -71,14 +72,37 @@ body {
     color: var(--text-muted);
     transition: color 1s;
 }
-.back-btn{
-    justify-self: calc(left - 15px);
-
-}
-.archive-btn{
-    justify-self: calc(right - 15px);
-}
 .back-btn:hover, .archive-btn:hover{
     color: var(--text);
 }
 /* Header End */
+
+/* Chat Begin */
+.chat-section {
+    margin: 0 auto;
+    margin-bottom: 100px;
+
+}
+.input-div{
+    position: relative;
+    display: inline-block;
+    
+}
+.input-div input {
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--bg2);
+    border: none;
+    border-radius: var(--radius);
+
+}
+.input-div button{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 5px 10px;
+
+}
