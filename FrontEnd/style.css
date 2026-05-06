@@ -1,0 +1,39 @@
+:root {
+    --background: #0E0F14;
+    --card: #1E1F26;
+    --yellow: #FCC419;
+    --text: #FFFFFF;
+    --text-muted: #888888;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.app-container {
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border-radius: 40px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    
+}
