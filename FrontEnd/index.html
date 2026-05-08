@@ -3,26 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Zen Camera App</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    
-    <!--
-        Os elementos abaixo devem permanecer do jeito que estao, eles nao podem ser removidos ou alterados.
-        Colocar eles dentro de Div/section, mudar de posicao ou alterar o ESTILO no arquivo .css = OK!
-
-        De forma alguma esses elementos podem ter os seus id alterados, src ou type.
-
-        Os elementos abaixo sao fundamentais para o funcionamento do back end.
-    -->
-
-    <input type="file" accept="image/*" id="img_input">
-    <img src="" alt="" id="img_preview">
-    <input type="text" id="user_msg">
-    <button id="request_send">send</button>
-    <div id="ai-response"></div>
+<div class="app-container">
     <script src="script.js" defer></script>
+
+     <div class="header">
+            <button class="back-btn">←</button>
+            <h1 class="title">AI Studio</h1>
+            <button class="archive-btn">⊞</button>
+        </div> 
+
+    <div id="screen-studio">
+        <div class="image_section">
+            <input type="file" accept="image/*" id="img_input">
+            <img src="" alt="" id="img_preview">
+            <div id="ai-response"></div>
+        </div>
+    </div>
+    <div id="screen-mindmap">
+        <div class="minmap-container"></div>
+    </div>
+
+    
+    <div class="chat-section">
+        <div class="input-div">
+            <input type="text" id="user_msg" placeholder="Talk to the AI. . .">
+            <button id="request_send">send</button>
+        </div>
+        
+    </div>
+</div>
 </body>
 </html>
