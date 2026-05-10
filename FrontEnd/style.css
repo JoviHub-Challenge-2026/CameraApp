@@ -1,13 +1,14 @@
 :root {
     --bg: #1a1a1a;
     --bg2: #4c4c4c;
+    --bg3: #707070;
     --card: #1E1F26;
     --yellow: #FCC419;
     --text: #e7e7e7;
     --text-muted: #888888;
     --radius: 12px;
     --font-display: 'Montserrat', sans-serif;
-    --font-body: 'Rajdhani', sans-serif;
+    --font-body: 'Outfit', sans-serif;
 }
 
 * {
@@ -95,7 +96,7 @@ body {
     padding: 5px;
     border-radius: var(--radius);
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-
+  
 }
 .input-wrapper textarea{
     flex: 1;
@@ -105,14 +106,27 @@ body {
     resize: none;
     background: transparent;
     color: var(--text);
-    max-height: 68px;
-    overflow-y: auto
-
+    max-height: 50px;
+    overflow-y: auto;
+    align-self: center;
+    outline: none;
+    padding-left: 5px;
+    padding-right: 10px;
 }
 .input-wrapper button{
+    display: flex;
     background: transparent;
     border: none;
     cursor: pointer;
+    background: var(--bg3);
+    padding: 5px ;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    
+}
+.input-wrapper:focus-within{
+    border: solid #fff 1px;
     
 }
 
