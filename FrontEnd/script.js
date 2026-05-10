@@ -75,4 +75,9 @@ request.addEventListener("click", async() => {
 })
 
 /* Chat Input Div */
+const textarea = document.getElementById("user_msg");
 
+textarea.addEventListener("input", () =>{
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+})

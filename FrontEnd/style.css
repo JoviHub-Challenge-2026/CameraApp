@@ -105,13 +105,15 @@ body {
     resize: none;
     background: transparent;
     color: var(--text);
+    max-height: 68px;
+    overflow-y: auto
 
 }
 .input-wrapper button{
     background: transparent;
     border: none;
     cursor: pointer;
-    align-self: center;
+    
 }
 
 
