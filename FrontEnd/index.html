@@ -11,8 +11,9 @@
     
 </head>
 <body>
+
 <div class="app-container">
-    <script src="script.js" defer></script>
+    
 
      <div class="header">
             <button class="back-btn">←</button>
@@ -33,9 +34,15 @@
 
     
     <div class="chat-section">
-        <input type="text" id="user_msg">
-        <button id="request_send">send</button>
+        <div class="input-wrapper">
+            <textarea name="input" id="user_msg" wrap="soft" rows="1"></textarea>
+            <!--<input type="text" id="user_msg"> -->
+            <button id="request_send">→</button>
+       </div>
     </div>
 </div>
+
+<script src="script.js" defer></script>
+
 </body>
 </html>

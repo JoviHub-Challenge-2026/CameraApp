@@ -1,10 +1,13 @@
 :root {
-    --background: #0E0F14;
+    --bg: #1a1a1a;
+    --bg2: #4c4c4c;
     --card: #1E1F26;
     --yellow: #FCC419;
-    --text: #FFFFFF;
+    --text: #e7e7e7;
     --text-muted: #888888;
     --radius: 12px;
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
 }
 
 * {
@@ -29,7 +32,7 @@ body {
     width: 390px;
     height: 844px;
     margin: 0 auto;
-    background-color: var(--background);
+    background-color: var(--bg);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -60,25 +63,56 @@ body {
 
 }
 .header h1{
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-display);
     justify-self: center;
     font-size: 12px;
     font-weight: 200;
+
 }
 .back-btn, .archive-btn{
     background: none;
     border: none;
     color: var(--text-muted);
-    transition: color 1s;
-}
-.back-btn{
-    justify-self: calc(left - 15px);
-
-}
-.archive-btn{
-    justify-self: calc(right - 15px);
+    
 }
 .back-btn:hover, .archive-btn:hover{
     color: var(--text);
+
 }
 /* Header End */
+
+/* Chat Begin */
+.chat-section{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 50px;
+
+}
+.input-wrapper{
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--bg2) ; /* TEMP */
+    padding: 5px;
+    border-radius: var(--radius);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+}
+.input-wrapper textarea{
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    border: none;
+    resize: none;
+    background: transparent;
+    color: var(--text);
+
+}
+.input-wrapper button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+}
+
+
+/* Chat End */
