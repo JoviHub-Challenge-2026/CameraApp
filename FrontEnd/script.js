@@ -29,6 +29,8 @@ function renderNode(node) {
 img_input.addEventListener("change", () => {
     let img = img_input.files[0]
     preview.src = URL.createObjectURL(img)
+    img_input.style.display = "none"
+    preview.style.background = "#000"
 });
 
 request.addEventListener("click", async() => {
