@@ -4,6 +4,7 @@ const user_msg = document.getElementById("user_msg")
 const request = document.getElementById("request_send")
 const ai_display = document.getElementById("ai-response")
 
+
 function renderNode(node) {
     const div = document.createElement("div");
     const childrenContainer = document.createElement("div");
@@ -28,6 +29,9 @@ function renderNode(node) {
 img_input.addEventListener("change", () => {
     let img = img_input.files[0]
     preview.src = URL.createObjectURL(img)
+    img_input.style.display = "none"
+    preview.style.background = "#000"
+    document.querySelector(".image-section").classList.add("glow-active")
 });
 
 request.addEventListener("click", async() => {
@@ -71,4 +75,12 @@ request.addEventListener("click", async() => {
             }
         });
     };
+})
+
+/* Chat Input Div */
+const textarea = document.getElementById("user_msg");
+
+textarea.addEventListener("input", () =>{
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
 })
