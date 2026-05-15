@@ -31,6 +31,7 @@ img_input.addEventListener("change", () => {
     preview.src = URL.createObjectURL(img)
     img_input.style.display = "none"
     preview.style.background = "#000"
+    document.querySelector(".image-section").classList.add("glow-active")
 });
 
 request.addEventListener("click", async() => {
