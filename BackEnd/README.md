@@ -4,4 +4,4 @@ Receive request → build parts → build gemini_request → send to Gemini → 
 
 
 python -m http.server 3000 -- index.
-python -m uvicorn main:app --reload --main.py
+python -m uvicorn main:app --reload 
